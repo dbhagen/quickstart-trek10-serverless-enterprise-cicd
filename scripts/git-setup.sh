@@ -4,10 +4,7 @@
 set -euo pipefail
 
 # Variables:
-# The name you previously used to create your CloudFormation stack 
-STACK_NAME=quickstart-trek10-serverless-enterprise-cicd
-# Relative path to local folder (that does not exist) to store git project 
-LOCAL_REPO_FOLDER=../sample-project-codecommit
+source deployment-variables.sh
 
 # Get parameters from stack
 USER=$(aws cloudformation describe-stacks --stack-name ${STACK_NAME} --query "Stacks[*].Outputs[?OutputKey=='IAMUserName'].OutputValue" --output text)
